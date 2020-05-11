@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace SyrHarpy
 {
-    class SyrHarpyCore : Mod
+    /*class SyrHarpyCore : Mod
     {
         public static SyrHarpySettings settings;
 
@@ -27,11 +27,6 @@ namespace SyrHarpy
             {
                 Listing_Standard listing_Standard = new Listing_Standard();
                 listing_Standard.Begin(inRect);
-                listing_Standard.CheckboxLabeled("SyrHarpy_useStandardAI".Translate(), ref SyrHarpySettings.useStandardAI, "SyrHarpy_useStandardAITooltip".Translate());
-                if (listing_Standard.ButtonText("SyrHarpy_defaultSettings".Translate(), "SyrHarpy_defaultSettingsTooltip".Translate()))
-                {
-                    SyrHarpySettings.useStandardAI = false;
-                }
                 listing_Standard.End();
                 settings.Write();
             }
@@ -40,5 +35,5 @@ namespace SyrHarpy
         {
             base.WriteSettings();
         }
-    }
+    }*/
 }

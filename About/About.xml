@@ -7,7 +7,45 @@
         <li>1.1</li>
     </supportedVersions>
 	<url>https://ludeon.com/forums/index.php?topic=43449</url>
-    <description>Adds a harpy race.
+    <description>The Harpies are a neolithic race that are limited in their technological advancements by their constant fighting among themselves and tendency to pick fights with anyone, even stronger foes.
+
+They have wings and large ears, appear otherwise human however. They are much lighter than a human due to hollow bones and different physique, allowing them to fly short distances. It also makes them much faster and they can skip over difficult terrain.
+
+Their claws are razor sharp and make them deadly in melee. Keeping your distance will not save you however, as many harpies have the ability to throw orbs of lightning. Some scientists believed these powers could be improved upon with implants.
+
+While being as versatile as humans when it comes to most forms of work they rely on their claws and lightning attacks for defense as they are incapable of wielding any type of weapon. And despite their beauty their need to fight will make them somewhat hard to integrate into a working colony, especially with other harpies around.
+
+Advantages:
+- Increased melee hit and dodge
+- Fast, powerful melee attacks
+- Natural ranged attack
+- 1.0 Beauty base 
+- Very fast
+- Ignores path cost when wings are functioning
+- Can fly across any terrain from time to time
+- Claws can be easily upgraded with steel or plasteel
+- Lightning amplifiers allows upgrading ranged attack
+- Have no need for joy
+- Simple, human diet
+- Ignore the burn from chilis
+
+Disadvantages:
+- New need: Bloodlust
+- High social fight chance
+- High abrasiveness
+- Double outdoor need
+- Low carrying capacity
+- Lose their terrain ignoring ability and fly ability when wings are hurt too much (or lost)
+- Require relatively warm temperature
+- Cannot use any weapon
+- 90% female rate
+- Do not get mood buffs from eating fancy food
+- Instead require chili, human meat or a combination to raise their mood
+- Adding prosthetic arms will not restore wings
+- Replacing natural arms with prosthetics will leave them without wings
+- Require seperate wing prosthetics
+- Hand and food wear (doesnt exist in vanilla) will not fit over their claws
+- No fun at parties
     </description>
     <packageId>syrchalis.harpy</packageId>
     <modDependencies>

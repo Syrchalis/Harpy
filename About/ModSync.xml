@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModSyncNinjaData>
+  <ID>edc24a2c-5e9f-4731-828f-011ff7bd3bb5</ID>
+  <ModName>[SYR] Harpy</ModName>
+  <Version>1.1.0.</Version>
+  <SaveBreaking>False</SaveBreaking>
+  <Host name="Github">
+    <Owner>Syrchalis</Owner>
+    <Project>Harpy</Project>
+    <AboutDir>About</AboutDir>
+    <DownloadFrom>ModSyncReleases</DownloadFrom>
+    <Branch>master</Branch>
+  </Host>
+</ModSyncNinjaData>

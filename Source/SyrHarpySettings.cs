@@ -9,14 +9,12 @@ using Verse;
 
 namespace SyrHarpy
 {
-    class SyrHarpySettings : ModSettings
+    /*class SyrHarpySettings : ModSettings
     {
-        public static bool useStandardAI = false;
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look<bool>(ref useStandardAI, "SyrHarpy_usestandardAI", false, true);
         }
-    }
+    }*/
 }
