@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- Prosthetic wing -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SimpleProstheticWingHarpy</defName>
+    <label>prosthetic harpy wing</label>
+    <labelNoun>a prosthetic harpy wing</labelNoun>
+    <description>An installed prosthetic harpy wing.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticWingHarpy</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>SimpleProstheticWingHarpy</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>0.60</partEfficiency>
+      <betterThanNatural>false</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartProstheticMakeableBase">
+    <defName>SimpleProstheticWingHarpy</defName>
+    <label>prosthetic harpy wing</label>
+    <description>A wing prosthesis. While it lacks a neural interface and is not as flexible as a real wing it allows a limited amount of flight.</description>
+    <descriptionHyperlinks><RecipeDef>InstallSimpleProstheticWingHarpy</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+	    <Cloth>40</Cloth>
+    </costList>
+    <statBases>
+      <Mass>5</Mass>
+    </statBases>
+    <techHediffsTags>
+      <li>Simple</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartProstheticBase">
+    <defName>InstallSimpleProstheticWingHarpy</defName>
+    <label>install prosthetic harpy wing</label>
+    <description>Install a prosthetic harpy wing.</description>
+    <descriptionHyperlinks><ThingDef>SimpleProstheticWingHarpy</ThingDef></descriptionHyperlinks>
+    <jobString>Installing prosthetic harpy wing.</jobString>
+	<workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	<recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>SimpleProstheticWingHarpy</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>SimpleProstheticWingHarpy</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>WingHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SimpleProstheticWingHarpy</addsHediff>
+  </RecipeDef>
+
+<!-- Bionic wing -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>BionicWingHarpy</defName>
+    <label>bionic harpy wing</label>
+    <labelNoun>a bionic harpy wing</labelNoun>
+    <description>An installed bionic harpy wing.</description>
+    <descriptionHyperlinks><ThingDef>BionicWingHarpy</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>BionicWingHarpy</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.25</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartBionicBase">
+    <defName>BionicWingHarpy</defName>
+    <label>bionic harpy wing</label>
+    <description>A wing prosthesis. While it lacks a neural interface and is not as flexible as a real wing it allows a limited amount of flight.</description>
+    <descriptionHyperlinks><RecipeDef>InstallBionicWingHarpy</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <ComponentSpacer>2</ComponentSpacer>
+	    <DevilstrandCloth>40</DevilstrandCloth>
+    </costList>
+    <statBases>
+      <Mass>5</Mass>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallBionicWingHarpy</defName>
+    <label>install bionic harpy wing</label>
+    <description>Install a bionic harpy wing.</description>
+    <descriptionHyperlinks><ThingDef>BionicWingHarpy</ThingDef></descriptionHyperlinks>
+    <jobString>Installing bionic harpy wing.</jobString>
+	  <workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	  <recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicWingHarpy</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>BionicWingHarpy</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>WingHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>BionicWingHarpy</addsHediff>
+  </RecipeDef>
+
+<!-- Archotech wing -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>ArchotechWingHarpy</defName>
+    <label>archotech harpy wing</label>
+    <labelNoun>an archotech harpy wing</labelNoun>
+    <description>An installed archotech harpy wing.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechWingHarpy</ThingDef></descriptionHyperlinks>
+    <spawnThingOnRemoved>ArchotechWingHarpy</spawnThingOnRemoved>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.5</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>ArchotechWingHarpy</defName>
+    <label>archotech harpy wing</label>
+    <description>A wing prosthesis. While it lacks a neural interface and is not as flexible as a real wing it allows a limited amount of flight.</description>
+    <descriptionHyperlinks><RecipeDef>InstallArchotechWingHarpy</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>2000</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallArchotechWingHarpy</defName>
+    <label>install archotech harpy wing</label>
+    <description>Install an archotech harpy wing.</description>
+    <descriptionHyperlinks><ThingDef>ArchotechWingHarpy</ThingDef></descriptionHyperlinks>
+    <jobString>Installing archotech harpy wing.</jobString>
+	  <workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	  <recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ArchotechWingHarpy</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>ArchotechWingHarpy</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>WingHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>ArchotechWingHarpy</addsHediff>
+  </RecipeDef>
+
+
+<!-- Steel claw -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>SteelHarpyClaw</defName>
+    <label>steel harpy claw</label>
+    <labelNoun>a steel harpy claw</labelNoun>
+    <description>An installed steel harpy claw.</description>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>claw</label>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>1.25</cooldownTime>
+            <armorPenetration>0.25</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallSteelHarpyClaw</defName>
+    <label>install steel harpy claw</label>
+    <description>Install a steel harpy claw.</description>
+    <jobString>Installing steel harpy claw.</jobString>
+	  <workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	  <recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>35</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>HandClawsHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>SteelHarpyClaw</addsHediff>
+  </RecipeDef>
+
+<!-- Plasteel claw -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>PlasteelHarpyClaw</defName>
+    <label>plasteel harpy claw</label>
+    <labelNoun>a plasteel harpy claw</labelNoun>
+    <description>An installed plasteel harpy claw.</description>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>claw</label>
+            <capacities>
+              <li>Cut</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>1.1</cooldownTime>
+            <armorPenetration>0.4</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallPlasteelHarpyClaw</defName>
+    <label>install plasteel harpy claw</label>
+    <description>Install a plasteel harpy claw.</description>
+    <jobString>Installing plasteel harpy claw.</jobString>
+	  <workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	  <recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>35</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Plasteel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>HandClawsHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>PlasteelHarpyClaw</addsHediff>
+  </RecipeDef>
+
+<!-- Monoclaw -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HarpyMonoClaw</defName>
+    <label>harpy monoclaw</label>
+    <labelNoun>a harpy monoclaw</labelNoun>
+    <description>An installed harpy monoclaw.</description>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>claw</label>
+            <capacities>
+              <li>Stab</li>
+            </capacities>
+            <power>12</power>
+            <cooldownTime>1.0</cooldownTime>
+            <armorPenetration>0.9</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HarpyMonoClaw</defName>
+    <label>harpy monoclaw</label>
+    <description>A crystal-metallic claw infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its light weight permits fast attacks.</description>
+    <descriptionHyperlinks><RecipeDef>InstallHarpyMonoClaw</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallHarpyMonoClaw</defName>
+    <label>install harpy monoclaw</label>
+    <description>Install a harpy monoclaw.</description>
+    <jobString>Installing harpy monoclaw.</jobString>
+	  <workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	  <recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HarpyMonoClaw</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HarpyMonoClaw</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>HandClawsHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HarpyMonoClaw</addsHediff>
+  </RecipeDef>
+
+<!-- Venomclaw -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HarpyVenomClaw</defName>
+    <label>harpy venonmclaw</label>
+    <labelNoun>a harpy venonmclaw</labelNoun>
+    <description>An installed harpy venonmclaw.</description>
+    <addedPartProps>
+      <solid>true</solid>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>claw</label>
+            <capacities>
+              <li>ScratchToxic</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>1.25</cooldownTime>
+            <armorPenetration>0.25</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HarpyVenomClaw</defName>
+    <label>harpy venonmclaw</label>
+    <description>Specialized claws coated in potent neurotoxin. The internal pumps make sure that every swing can deliver a new dose of venom while also synthesizing new venom from the user's body without affecting their health.</description>
+    <descriptionHyperlinks><RecipeDef>InstallHarpyVenomClaw</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallHarpyVenomClaw</defName>
+    <label>install harpy venonmclaw</label>
+    <description>Install a harpy venonmclaw.</description>
+    <jobString>Installing harpy venonmclaw.</jobString>
+	  <workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	  <recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HarpyVenomClaw</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HarpyVenomClaw</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>HandClawsHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HarpyVenomClaw</addsHediff>
+  </RecipeDef>
+
+  <!-- WorkClaw -->
+  <HediffDef ParentName="AddedBodyPartBase">
+    <defName>HarpyWorkClaw</defName>
+    <label>harpy work claw</label>
+    <labelNoun>a harpy work claw</labelNoun>
+    <description>An installed harpy work claw.</description>
+    <addedPartProps>
+      <solid>true</solid>
+      <partEfficiency>1.5</partEfficiency>
+      <betterThanNatural>true</betterThanNatural>
+    </addedPartProps>
+    <comps>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>claw</label>
+            <capacities>
+              <li>Scratch</li>
+            </capacities>
+            <power>9</power>
+            <cooldownTime>1.25</cooldownTime>
+            <armorPenetration>0.25</armorPenetration>
+          </li>
+        </tools>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <ThingDef ParentName="BodyPartArchotechBase">
+    <defName>HarpyWorkClaw</defName>
+    <label>harpy work claw</label>
+    <description>Specialized claws with superior flexibility and accurately tuned servo motors, which allows more efficient working while maintaining a certain deadliness.</description>
+    <descriptionHyperlinks><RecipeDef>InstallHarpyWorkClaw</RecipeDef></descriptionHyperlinks>
+    <statBases>
+      <MarketValue>1500</MarketValue>
+      <Mass>5</Mass>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
+    <defName>InstallHarpyWorkClaw</defName>
+    <label>install harpy work claw</label>
+    <description>Install a harpy work claw.</description>
+    <jobString>Installing harpy work claw.</jobString>
+	  <workerClass>SyrHarpy.Recipe_InstallPart</workerClass>
+	  <recipeUsers Inherit="False">
+      <li>Harpy</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HarpyWorkClaw</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HarpyWorkClaw</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>HandClawsHarpy</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>HarpyWorkClaw</addsHediff>
+  </RecipeDef>
+
+</Defs>

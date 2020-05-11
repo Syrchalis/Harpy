@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<SyrHarpySettingsCategory>Harpy</SyrHarpySettingsCategory>
+	<SyrHarpy_useStandardAI>Use standard AI to look for food</SyrHarpy_useStandardAI>
+	<SyrHarpy_useStandardAITooltip>Will disable the advanced AI looking for nutritious food and instead make thrumkin look for food like humans - can fix issues with food AI.</SyrHarpy_useStandardAITooltip>
+	<SyrHarpy_defaultSettings>Reset to default</SyrHarpy_defaultSettings>
+	<SyrHarpy_defaultSettingsTooltip>Reset settings to default values</SyrHarpy_defaultSettingsTooltip>
+
+	<HarpyNeed_BloodlustBreak>This happened because: Unsatisfied bloodlust need</HarpyNeed_BloodlustBreak>
+	<MinorBloodlustAlert>Minor Bloodlust</MinorBloodlustAlert>
+	<MajorBloodlustAlert>Major Bloodlust</MajorBloodlustAlert>
+	<MinorBloodlustAlertDesc>These colonists have a desire to fight and if not dealt with might do so on their own:\n\n{0}</MinorBloodlustAlertDesc>
+	<MajorBloodlustAlertDesc>These colonists have a critical desire to fight and may go berserk at any moment:\n\n{0}</MajorBloodlustAlertDesc>
+
+	<HarpyLightningAmplifierBetter>needs advanced amplifier</HarpyLightningAmplifierBetter>
+	<HarpyLightningAmplifierWorse>needs basic amplifier</HarpyLightningAmplifierWorse>
+	<HarpyLightningAmplifierNotHarpy>not a harpy</HarpyLightningAmplifierNotHarpy>
+
+	<HarpyLightning_Damage>Damage</HarpyLightning_Damage>
+	<HarpyLightning_Penetration>Armor penetration</HarpyLightning_Penetration>
+	<HarpyLightning_Range>Range</HarpyLightning_Range>
+	<HarpyLightning_Casttime>Casttime</HarpyLightning_Casttime>
+	<HarpyLightning_Cooldown>Cooldown</HarpyLightning_Cooldown>
+
+	<!--Fly Ability-->
+	<HarpyFlyLabel>Fly</HarpyFlyLabel>
+	<HarpyFlyDescription>Allows a harpy to fly to a nearby location, range depends on wing health, cooldown on breathing capacity</HarpyFlyDescription>
+	<HarpyFlyCooldown>Cooldown</HarpyFlyCooldown>
+
+	<HarpyFly_NoPawn>No pawn</HarpyFly_NoPawn>
+	<HarpyFly_OnFire>Pawn is on fire</HarpyFly_OnFire>
+	<HarpyFly_Dead>Pawn is dead</HarpyFly_Dead>
+	<HarpyFly_MentalState>Pawn is in a mental state</HarpyFly_MentalState>
+	<HarpyFly_Downed>Pawn is downed or sleeping</HarpyFly_Downed>
+	<HarpyFly_Wings>Not enough wing capacity</HarpyFly_Wings>
+	<HarpyFly_Cooldown>Still on cooldown</HarpyFly_Cooldown>
+	<HarpyFly_RoofCaster>Not close enough to unroofed cell</HarpyFly_RoofCaster>
+	<HarpyFly_RoofTarget>Target location roofed</HarpyFly_RoofTarget>
+	<HarpyFly_InvalidCell>Location roofed or inaccessable</HarpyFly_InvalidCell>
+	<HarpyFly_Distance>Too far away</HarpyFly_Distance>
+
+</LanguageData>

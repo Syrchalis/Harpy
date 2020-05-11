@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>AteHarpyChili</defName>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate chili</label>
+        <description>I ate tasty spicy chilis. Yum!</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>AteHumanMeatAsHarpy</defName>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate human meat</label>
+        <description>I ate some tasty human meat.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>AteHarpySpecial</defName>
+    <durationDays>1</durationDays>
+    <stages>
+      <li>
+        <label>ate harpy special</label>
+        <description>Human meat and spicy chilis just go so well together.</description>
+        <baseMoodEffect>12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>AteHarpyMeatDirect</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <nullifyingTraits>
+      <li>Cannibal</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>raw cannibalism</label>
+        <description>I ate the meat of another harpy, raw, like an animal. This is a nightmare.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>AteHarpyMeatAsIngredient</defName>
+    <showBubble>true</showBubble>
+    <icon>Things/Mote/ThoughtSymbol/Food</icon>
+    <durationDays>1</durationDays>
+    <nullifyingTraits>
+      <li>Cannibal</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>cooked cannibalism</label>
+        <description>I ate a meal made from the meat of another harpy. This is horrible.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>Defs/FactionDef[@Name = "OutlanderFactionBase"]/pawnGroupMakers//Town_Guard/..</xpath>
+		<value>
+			<Harpy_Villager>1</Harpy_Villager>
+			<Harpy_Guard>0.5</Harpy_Guard>
+			<Harpy_Gunner>0.3</Harpy_Gunner>
+			<Harpy_Slasher>0.5</Harpy_Slasher>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>Defs/FactionDef[@Name = "TribeBase"]/pawnGroupMakers//Tribal_Warrior/..</xpath>
+		<value>
+			<Harpy_Penitent>0.5</Harpy_Penitent>
+			<Harpy_Archer>0.2</Harpy_Archer>
+			<Harpy_Warrior>0.5</Harpy_Warrior>
+			<Harpy_Hunter>0.2</Harpy_Hunter>
+			<Harpy_Berserker>0.5</Harpy_Berserker>
+			<Harpy_HeavyArcher>0.2</Harpy_HeavyArcher>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>Defs/FactionDef[@Name = "TribeBase"]/pawnGroupMakers/li[2]/options</xpath>
+		<value>
+			<Harpy_Archer>2</Harpy_Archer>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	  <xpath>Defs/FactionDef[defName = "Pirate"]/pawnGroupMakers//Mercenary_Slasher/..</xpath>
+		<value>
+			<Harpy_Gunner>0.5</Harpy_Gunner>
+			<Harpy_Slasher>1</Harpy_Slasher>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+	<success>Always</success>
+	  <xpath>Defs/FactionDef[defName = "Empire"]/pawnGroupMakers//Empire_Fighter_Trooper/..</xpath>
+		<value>
+			<Harpy_Gunner>0.2</Harpy_Gunner>
+			<Harpy_Slasher>0.2</Harpy_Slasher>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/DutyDef[defName = "Party"]/thinkNode/subNodes//li[@Class = "JobGiver_GetJoyInGatheringArea"]/../..</xpath>
+		<value>
+			<li Class="ThinkNode_ConditionalRandom">
+				<chance>0.1</chance>
+				<subNodes>
+					<li Class="SyrHarpy.ThinkNode_ConditionalRace">
+						<race>Harpy</race>
+						<invert>true</invert>
+						<subNodes>
+							<li Class="JobGiver_GetJoyInGatheringArea" />
+						</subNodes>
+					</li>
+					<li Class="SyrHarpy.ThinkNode_ConditionalRace">
+						<race>Harpy</race>
+						<subNodes>
+							<li Class="SyrHarpy.JobGiver_HarpyGetJoyInGatheringArea" />
+						</subNodes>
+					</li>
+				</subNodes>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/RecipeDef[@Name = "CookMealBase"]/defaultIngredientFilter/disallowedThingDefs</xpath>
+		<value>
+			<li>RawHarpyChilis</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[SYR] Naga</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[@Name = "CookMealBase_Naga"]/defaultIngredientFilter/disallowedThingDefs</xpath>
+					<value>
+						<li>RawHarpyChilis</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[SYR] Thrumkin</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[@Name = "CookMealBase_Thrumkin"]/defaultIngredientFilter/disallowedThingDefs</xpath>
+					<value>
+						<li>RawHarpyChilis</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>
