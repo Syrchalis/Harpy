@@ -83,7 +83,7 @@
   <ThingDef ParentName="BodyPartBionicBase">
     <defName>BionicWingHarpy</defName>
     <label>bionic harpy wing</label>
-    <description>A wing prosthesis. While it lacks a neural interface and is not as flexible as a real wing it allows a limited amount of flight.</description>
+    <description>A wing prosthesis. Much better than a prosthetic, it connects to the user's nerves and allows flight like a normal wing, just with additional power.</description>
     <descriptionHyperlinks><RecipeDef>InstallBionicWingHarpy</RecipeDef></descriptionHyperlinks>
     <costList>
       <Plasteel>20</Plasteel>
@@ -150,7 +150,7 @@
   <ThingDef ParentName="BodyPartArchotechBase">
     <defName>ArchotechWingHarpy</defName>
     <label>archotech harpy wing</label>
-    <description>A wing prosthesis. While it lacks a neural interface and is not as flexible as a real wing it allows a limited amount of flight.</description>
+    <description>A wing prosthesis. This archotech wing not only allows control via the nervous system like a natural wing, but is much more flexible and durable as well.</description>
     <descriptionHyperlinks><RecipeDef>InstallArchotechWingHarpy</RecipeDef></descriptionHyperlinks>
     <statBases>
       <MarketValue>2000</MarketValue>
