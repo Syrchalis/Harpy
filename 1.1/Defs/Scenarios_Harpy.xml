@@ -4,7 +4,7 @@
   <ScenarioDef>
     <defName>Harpy Tribe</defName>
     <label>Harpy Tribe</label>
-    <description>Having lived solitairy most of your life the four of you have founded a tribe when times became more dangerous. Will you be able to survive and get out with your horns intact?</description>
+    <description>The constant fighting among your kind was too much for the four of you and when beasts of steal attacked you used the opportunity to fly away in search for a brighter future. Will your feathers stay un-ruffled or is this a story of broken wings?</description>
     <scenario>
       <summary>Four harpies start a tribe.</summary>
       <playerFaction>
