@@ -169,10 +169,11 @@ namespace SyrHarpy
         }
         public bool CanHitTarget(LocalTargetInfo target)
         {
-            return target.Cell.DistanceTo(pawn.Position) <= abilityRange
-            && target.Cell.Standable(pawn.Map)
-            && target.Cell.InBounds(pawn.Map)
-            && !target.Cell.Roofed(pawn.Map);
+            return pawn.Map != null 
+                && target.Cell.DistanceTo(pawn.Position) <= abilityRange
+                && target.Cell.Standable(pawn.Map)
+                && target.Cell.InBounds(pawn.Map)
+                && !target.Cell.Roofed(pawn.Map);
             
         }
         public bool ValidateTarget(LocalTargetInfo target)
