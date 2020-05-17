@@ -121,6 +121,14 @@ namespace SyrHarpy
         {
             drugsNursedToday.RemoveAll(kvp => kvp.Value < Find.TickManager.TicksGame - GenDate.TicksPerDay);
         }
+        public override void PrePreTraded(TradeAction action, Pawn playerNegotiator, ITrader trader)
+        {
+            base.PrePreTraded(action, playerNegotiator, trader);
+            if (action == TradeAction.PlayerBuys && parent is Pawn pawn)
+            {
+                HarpyUtility.SwapLightningWeapon(pawn, HarpyUtility.HarpyAmplifierLevel(pawn));
+            }
+        }
 
         public float cooldownTicks;
         public bool drafted;
