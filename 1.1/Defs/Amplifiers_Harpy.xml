@@ -13,6 +13,9 @@
       <graphicClass>Graphic_Single</graphicClass>
       <color>(1,1,1)</color>
     </graphicData>
+    <thingCategories>
+      <li>BodyPartsArchotech</li>
+    </thingCategories>
     <comps>
       <li Class="CompProperties_Usable">
         <compClass>CompUsableImplant</compClass>
@@ -65,6 +68,9 @@
       <graphicClass>Graphic_Single</graphicClass>
       <color>(1,1,1)</color>
     </graphicData>
+    <thingCategories>
+      <li>BodyPartsArchotech</li>
+    </thingCategories>
     <comps>
       <li Class="CompProperties_Usable">
         <compClass>CompUsableImplant</compClass>

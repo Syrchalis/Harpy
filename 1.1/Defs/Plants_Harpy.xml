@@ -51,13 +51,6 @@
       <preferability>RawTasty</preferability>
       <tasteThought></tasteThought>
       <outcomeDoers>
-        <li Class="SyrHarpy.IngestionOutcomeDoer_Harpy">
-          <hediffDef>HarpyChiliBurn</hediffDef>
-          <severity>0.8</severity>
-          <notAffected>
-            <li>Harpy</li>
-          </notAffected>
-        </li>
         <li Class="IngestionOutcomeDoer_OffsetNeed">
           <need>Bloodlust</need>
           <offset>0.1</offset>

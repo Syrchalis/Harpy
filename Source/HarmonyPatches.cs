@@ -42,12 +42,22 @@ namespace SyrHarpy
         public static bool IndividualityActive => ModsConfig.ActiveModsInLoadOrder.Any(m => m.PackageId == "syrchalis.individuality");
     }
 
-    //Effects of eating chili or human meat
+    // Effects of eating chili or human meat
+    // Has to be prefix to get the stackcount
     [HarmonyPatch(typeof(Thing), nameof(Thing.Ingested))]
     public class IngestedPatch
     {
+        [HarmonyPrefix]
+        public static void Ingested_Prefix(Thing __instance, Pawn ingester, float nutritionWanted, ref int __state)
+        {
+            if (ingester != null && __instance.def == HarpyDefOf.RawHarpyChilis && ingester.def != HarpyDefOf.Harpy)
+            {
+                __state = IngestedCalculateStackCount(__instance, ingester, nutritionWanted);
+            }
+        }
+
         [HarmonyPostfix]
-        public static void Ingested_Postfix(Thing __instance, Pawn ingester, float nutritionWanted)
+        public static void Ingested_Postfix(Thing __instance, Pawn ingester, float nutritionWanted, int __state)
         {
             if (ingester != null)
             {
@@ -79,7 +89,13 @@ namespace SyrHarpy
                         ingester.needs.mood.thoughts.memories.TryGainMemory(HarpyDefOf.AteHumanMeatAsHarpy);
                     }
                 }
-                if (__instance?.def?.ingestible?.sourceDef?.race != null && __instance.def.ingestible.sourceDef == ThingDefOf.Human && ingester.def == HarpyDefOf.Harpy && need != null)
+                if (__instance.def == HarpyDefOf.RawHarpyChilis && ingester.def != HarpyDefOf.Harpy && ingester.HealthScale > 0.4f)
+                {
+                    Hediff hediff = HediffMaker.MakeHediff(HarpyDefOf.HarpyChiliBurn, ingester, null);
+                    hediff.Severity = __state * 0.05f / ingester.BodySize;
+                    ingester.health.AddHediff(hediff);
+                }
+                else if (__instance?.def?.ingestible?.sourceDef?.race != null && __instance.def.ingestible.sourceDef == ThingDefOf.Human && ingester.def == HarpyDefOf.Harpy && need != null)
                 {
                     need.GainBloodlust(0.05f);
                     ingester.needs.mood.thoughts.memories.TryGainMemory(HarpyDefOf.AteHumanMeatAsHarpy);
@@ -90,6 +106,17 @@ namespace SyrHarpy
                     ingester.needs.mood.thoughts.memories.TryGainMemory(HarpyDefOf.AteHarpyChili);
                 }
             }
+        }
+        public static int IngestedCalculateStackCount(Thing thing, Pawn ingester, float nutritionWanted)
+        {
+            int numTaken = Mathf.CeilToInt(nutritionWanted / thing.GetStatValue(StatDefOf.Nutrition, true));
+            numTaken = Mathf.Min(new int[]
+            {
+                numTaken,
+                thing.def.ingestible.maxNumToIngestAtOnce,
+                thing.stackCount
+            });
+            return Mathf.Max(numTaken, 1);
         }
     }
 
@@ -423,15 +450,18 @@ namespace SyrHarpy
     }
 
     //Add lightningWeapon if harpy does not have one once recruited
-    [HarmonyPatch]
+    [HarmonyPatch(typeof(InteractionWorker_RecruitAttempt), nameof(InteractionWorker_RecruitAttempt.DoRecruit), 
+        new Type[] { typeof(Pawn), typeof(Pawn), typeof(float), typeof(string), typeof(string), typeof(bool), typeof(bool) }, 
+        new ArgumentType[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Out, ArgumentType.Out, ArgumentType.Normal, ArgumentType.Normal })]
     public static class DoRecruitPatch
     {
-        [HarmonyTargetMethod]
+        // Alternate way
+        /*[HarmonyTargetMethod]
         static MethodBase CalculateMethod()
         {
             return AccessTools.Method(typeof(InteractionWorker_RecruitAttempt), nameof(InteractionWorker_RecruitAttempt.DoRecruit), new Type[] {
         typeof(Pawn), typeof(Pawn), typeof(float), typeof(string).MakeByRefType(), typeof(string).MakeByRefType(), typeof(bool), typeof(bool) }); ;
-        }
+        }*/
 
         [HarmonyPostfix]
         public static void DoRecruit_Postfix(Pawn recruiter, Pawn recruitee)
