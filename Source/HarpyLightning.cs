@@ -62,7 +62,7 @@ namespace SyrHarpy
                 GenExplosion.DoExplosion(Position, map, 2.4f, HarpyDefOf.HarpyLightning, launcher, (int)(damage * 0.25f), 0.5f, null, equipmentDef, def, intendedTarget.Thing, null, 0f, 1, false, null, 0f, 1, 0f, false, null, null);
                 damage *= 0.75f; //to avoid the main target taking too much damage (explosion + hit)
             }
-            if (hitThing != null && level < 6)
+            if (hitThing != null)
             {
                 BattleLogEntry_RangedImpact battleLogEntry_RangedImpact = new BattleLogEntry_RangedImpact(launcher, hitThing, intendedTarget.Thing, equipmentDef, def, targetCoverDef);
                 Find.BattleLog.Add(battleLogEntry_RangedImpact);

@@ -261,7 +261,7 @@
 
   <DamageDef>
     <defName>HarpyLightning</defName>
-    <workerClass>SyrHarpy.DamageWorker_HarpyLightningcs</workerClass>
+    <workerClass>SyrHarpy.DamageWorker_HarpyLightning</workerClass>
     <label>electrocution</label>
 	  <impactSoundType>Electric</impactSoundType>
     <makesBlood>false</makesBlood>
