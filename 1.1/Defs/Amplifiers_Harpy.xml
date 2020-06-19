@@ -32,9 +32,6 @@
         <compClass>CompUseEffect_DestroySelf</compClass>
       </li>
     </comps>
-    <thingSetMakerTags>
-      <li>RewardStandardMidFreq</li>
-    </thingSetMakerTags>
     <costList>
       <Steel>30</Steel>
       <Cloth>30</Cloth>
@@ -88,7 +85,7 @@
       </li>
     </comps>
     <thingSetMakerTags>
-      <li>RewardStandardHighFreq</li>
+      <li>RewardStandardLowFreq</li>
     </thingSetMakerTags>
     <tradeTags>
       <li>Bionic</li>
