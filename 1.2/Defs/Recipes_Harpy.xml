@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef Name="CookMealBase_Harpy" Abstract="True">
+    <fixedIngredientFilter>
+      <categories>
+        <li>MeatRaw</li>
+        <li>AnimalProductRaw</li>
+        <li>PlantFoodRaw</li>
+      </categories>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+      <categories>
+        <li>MeatRaw</li>
+        <li>AnimalProductRaw</li>
+        <li>PlantFoodRaw</li>
+      </categories>
+      <disallowedThingDefs>
+        <li>InsectJelly</li>
+      </disallowedThingDefs>
+    </defaultIngredientFilter>
+    <workSkill>Cooking</workSkill>
+    <recipeUsers>
+      <li>ElectricStove</li>
+      <li>FueledStove</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef ParentName="CookMealBase_Harpy">
+    <defName>CookMealFine_Harpy</defName>
+    <label>cook fine harpy meal</label>
+    <description>Cook a somewhat complex meal from a combination of ingredients.</description>
+    <jobString>Cooking fine harpy meal.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>MeatRaw</li>
+            <li>AnimalProductRaw</li>
+            <li>PlantFoodRaw</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>Meat_Human</li>
+            <li>RawHarpyChilis</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>0.25</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Meat_Human</li>
+            <li>RawHarpyChilis</li>
+          </thingDefs>
+        </filter>
+        <count>0.25</count>
+      </li>
+    </ingredients>
+    <products>
+      <MealFine_Harpy>1</MealFine_Harpy>
+    </products>
+    <workSkill>Cooking</workSkill>
+    <recipeUsers>
+      <li>Campfire</li>
+    </recipeUsers>
+  </RecipeDef>
+
+<RecipeDef ParentName="CookMealBase_Harpy">
+    <defName>CookMealFineBulk_Harpy</defName>
+    <label>cook fine harpy meal x4</label>
+    <description>Cook 4 somewhat complex meal from a combination of ingredients.</description>
+    <jobString>Cooking 4 fine harpy meals.</jobString>
+    <workAmount>960</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>MeatRaw</li>
+            <li>AnimalProductRaw</li>
+            <li>PlantFoodRaw</li>
+          </categories>
+          <disallowedThingDefs>
+            <li>Meat_Human</li>
+            <li>RawHarpyChilis</li>
+          </disallowedThingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Meat_Human</li>
+            <li>RawHarpyChilis</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <MealFine_Harpy>4</MealFine_Harpy>
+    </products>
+    <workSkill>Cooking</workSkill>
+  </RecipeDef>
+
+  <RecipeDef ParentName="CookMealBase_Harpy">
+    <defName>CookMealLavish_Harpy</defName>
+    <label>cook lavish harpy meal</label>
+    <description>Cook a very complex meal from a combination of human meat and spicy chilis, the favorite foods of every harpy.</description>
+    <jobString>Cooking lavish harpy meal.</jobString>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Meat_Human</li>
+          </thingDefs>
+        </filter>
+        <count>0.25</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RawHarpyChilis</li>
+          </thingDefs>
+        </filter>
+        <count>0.25</count>
+      </li>
+    </ingredients>
+    <products>
+      <MealLavish_Harpy>1</MealLavish_Harpy>
+    </products>
+    <skillRequirements>
+      <Cooking>6</Cooking>
+    </skillRequirements>
+  </RecipeDef>
+
+  <RecipeDef ParentName="CookMealBase_Harpy">
+    <defName>CookMealLavishBulk_Harpy</defName>
+    <label>cook lavish harpy meal x4</label>
+    <description>Cook 4 very complex meal from a combination of human meat and spicy chilis, the favorite foods of every harpy.</description>
+    <jobString>Cooking 4 lavish harpy meals.</jobString>
+    <workAmount>1440</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Meat_Human</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RawHarpyChilis</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <MealLavish_Harpy>4</MealLavish_Harpy>
+    </products>
+    <skillRequirements>
+      <Cooking>6</Cooking>
+    </skillRequirements>
+  </RecipeDef>
+
+</Defs>
