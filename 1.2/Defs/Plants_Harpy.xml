@@ -3,8 +3,8 @@
 
   <ThingDef ParentName="PlantBase">
     <defName>Plant_HarpyChili</defName>
-    <label>chili plant</label>
-    <description>NYI</description>
+    <label>harpy chili plant</label>
+    <description>Genetically modified chilis for maximum nutritional value and yield. They were designed to appease the appetite of thrill-seeking royals who wanted particularly spicy chilis. Mostly unable to perceive capsaicin harpies have taken a great liking to the plant. It soothes their bloodlust, tastes amazing to them and the ability to grow these almost anywhere is of great advantage, just like the fact nearly no one would steal them from them.</description>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <Nutrition>0.2</Nutrition>
@@ -38,8 +38,8 @@
 
   <ThingDef ParentName="PlantFoodRawBase">
     <defName>RawHarpyChilis</defName>
-    <label>chili</label>
-    <description>Raw chilis.</description>
+    <label>harpy chilis</label>
+    <description>Raw harpy chilis. Warning: Extremely spicy, do not feed to non-harpies.</description>
     <graphicData>
       <texPath>Things/Item/Resource/PlantFoodRaw/HarpyChili</texPath>
     </graphicData>
