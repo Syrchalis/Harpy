@@ -8,6 +8,9 @@
     <isFighter>false</isFighter>
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <forceNormalGearQuality>true</forceNormalGearQuality>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
   </PawnKindDef>
 
   <PawnKindDef Name="HarpyTribesperson" ParentName="BaseHarpyPawnKind">
@@ -64,6 +67,9 @@
     <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
     <invNutrition>2</invNutrition>
     <invFoodDef>Pemmican</invFoodDef>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
   </PawnKindDef>
 
   <PawnKindDef ParentName="HarpyTribesperson">
@@ -119,6 +125,9 @@
     <apparelTags>
       <li>Neolithic</li>
     </apparelTags>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
   </PawnKindDef>
 
   <!-- Poverty tier - penitent -->
@@ -290,6 +299,9 @@
     <weaponTags>
       <li>HarpyWeaponZero</li>
     </weaponTags>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
   </PawnKindDef>
 
   <PawnKindDef ParentName="HarpyOutlanderBase">

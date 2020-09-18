@@ -109,7 +109,7 @@ namespace SyrHarpy
             }
             amount = Mathf.Min(amount, 1f - CurLevel);
             curLevelInt += amount;
-            BloodlustAlertUtility.Notify_BloodlustChanged(pawn, CurLevel);
+            BloodlustAlertUtility.Notify_BloodlustChanged(pawn, curLevelInt);
             lastGainTick = Find.TickManager.TicksGame;
         }
         private int lastGainTick;
