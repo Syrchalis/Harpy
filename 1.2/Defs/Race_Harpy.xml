@@ -478,6 +478,7 @@
 				<li>AteHumanlikeMeatAsIngredient</li>
 				<li>ButcheredHumanlikeCorpse</li>
 				<li>KnowButcheredHumanlikeCorpse</li>
+				<li>HumanLeatherApparelSad</li>
 			</cannotReceiveThoughts>
 			<ateThoughtSpecific>
 				<li>
