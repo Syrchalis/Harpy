@@ -100,7 +100,7 @@
 							<options>
 								<li><!--Pink-->
 									<weight>1</weight>
-									<only>RGBA(192,64,120,1)</only>
+									<only>RGBA(192,64,120,255)</only>
 								</li>
 								<li><!--Orange-->
 									<weight>1</weight>
