@@ -127,5 +127,13 @@
 			</operations>
 		</match>
 	</Operation>
+
+  <!-- To fix division by zero error until HAR is updated -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/ThingDef[generateCommonality=0]/generateCommonality</xpath>
+		<value>
+      <generateCommonality>0.0001</generateCommonality>
+		</value>
+	</Operation>
 	
 </Patch>
