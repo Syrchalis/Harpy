@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  
+  <PawnKindDef Abstract="True" Name="BaseHarpyPawnKind">
+    <race>Harpy</race>
+    <combatPower>45</combatPower>
+    <baseRecruitDifficulty>0.25</baseRecruitDifficulty>
+    <isFighter>false</isFighter>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <forceNormalGearQuality>true</forceNormalGearQuality>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <initialWillRange>0~0</initialWillRange>
+    <initialResistanceRange>9~15</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef Name="HarpyTribesperson" ParentName="BaseHarpyPawnKind">
+    <defName>Harpy_Tribesperson</defName>
+    <label>member</label>
+    <defaultFactionType>HarpyPlayerTribe</defaultFactionType>
+    <backstoryCategories>
+      <li>Tribal</li>
+    </backstoryCategories>
+    <apparelTags>
+      <li>Neolithic</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>0</min>
+      <max>200</max>
+    </apparelMoney>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <LightningAmplifierHediff>0</LightningAmplifierHediff>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+  
+  <PawnKindDef>
+    <defName>Harpy_Slave</defName>
+    <label>harpy slave</label>
+    <combatPower>30</combatPower>
+    <race>Harpy</race>
+    <baseRecruitDifficulty>0.30</baseRecruitDifficulty>
+    <backstoryCategories>
+      <li>Tribal</li>
+    </backstoryCategories>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <itemQuality>Poor</itemQuality>
+    <backstoryCryptosleepCommonality>0</backstoryCryptosleepCommonality>
+    <isFighter>false</isFighter>
+    <chemicalAddictionChance>0.05</chemicalAddictionChance>
+    <gearHealthRange>
+      <min>0.2</min>
+      <max>0.8</max>
+    </gearHealthRange>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <apparelMoney>
+      <min>0</min>
+      <max>350</max>
+    </apparelMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <techHediffsChance>0</techHediffsChance>
+    <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+    <invNutrition>2</invNutrition>
+    <invFoodDef>Pemmican</invFoodDef>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>10~17</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyTribesperson">
+    <defName>Harpy_Refugee</defName>
+    <label>member</label>
+    <defaultFactionType>TribeCivil</defaultFactionType>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyTribesperson">
+    <defName>Harpy_Wanderer</defName>
+    <label>member</label>
+    <defaultFactionType>TribeCivil</defaultFactionType>
+    <apparelMoney>
+      <min>400</min>
+      <max>600</max>
+    </apparelMoney>
+    <apparelRequired>
+      <li>Apparel_Duster</li>
+    </apparelRequired>
+  </PawnKindDef>
+
+  <PawnKindDef Name="HarpyTribalBase" Abstract="True">
+    <race>Harpy</race>
+    <defaultFactionType>TribeCivil</defaultFactionType>
+    <backstoryCategories>
+      <li>Tribal</li>
+    </backstoryCategories>
+    <maxGenerationAge>40</maxGenerationAge>
+    <chemicalAddictionChance>0.02</chemicalAddictionChance>
+    <inventoryOptions>
+      <skipChance>0.6</skipChance>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>Silver</thingDef>
+          <countRange>30~70</countRange>
+        </li>
+        <li>
+          <thingDef>Gold</thingDef>
+          <countRange>3~6</countRange>
+        </li>
+        <li>
+          <thingDef>Jade</thingDef>
+          <countRange>6~10</countRange>
+        </li>
+        <li>
+          <thingDef>MedicineHerbal</thingDef>
+          <countRange>1~2</countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+    <invNutrition>4</invNutrition>
+    <invFoodDef>Pemmican</invFoodDef>
+    <apparelTags>
+      <li>Neolithic</li>
+    </apparelTags>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>10~17</initialResistanceRange>
+  </PawnKindDef>
+
+  <!-- Poverty tier - penitent -->
+
+  <PawnKindDef ParentName="HarpyTribalBase">
+    <defName>Harpy_Penitent</defName>
+    <label>Harpy penitent</label>
+    <combatPower>45</combatPower>
+    <chemicalAddictionChance>0.04</chemicalAddictionChance>
+    <invNutrition>1</invNutrition>
+    <itemQuality>Poor</itemQuality>
+    <apparelMoney>50~100</apparelMoney>
+    <techHediffsMoney>50~50</techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <techHediffsChance>0.10</techHediffsChance>
+    <inventoryOptions Inherit="False" />
+  </PawnKindDef>
+
+  <!-- Low tier - archer -->
+
+  <PawnKindDef ParentName="HarpyTribalBase">
+		<defName>Harpy_Archer</defName>
+		<label>Harpy witch</label>
+    <combatPower>60</combatPower>
+    <itemQuality>Normal</itemQuality>
+    <apparelMoney>180~350</apparelMoney>
+    <techHediffsMoney>50~50</techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <techHediffsChance>0.03</techHediffsChance>
+    <inventoryOptions Inherit="False" />
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <LightningAmplifierHediff>0</LightningAmplifierHediff>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+	</PawnKindDef>
+
+  <!-- Mid tier - warrior, hunter, trader -->
+  
+  <PawnKindDef ParentName="HarpyTribalBase">
+    <defName>Harpy_Warrior</defName>
+    <label>Harpy warrior</label>
+    <combatPower>90</combatPower>
+    <itemQuality>Normal</itemQuality>
+    <canBeSapper>true</canBeSapper>
+    <apparelMoney>200~300</apparelMoney>
+    <apparelRequired>
+      <li>Apparel_WarVeil</li>
+    </apparelRequired>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyTribalBase" Name="Harpy_Hunter">
+    <defName>Harpy_Hunter</defName>
+    <label>Harpy sparkwing</label>
+    <combatPower>90</combatPower>
+    <apparelMoney>200~300</apparelMoney>
+    <apparelRequired>
+      <li>Apparel_WarVeil</li>
+    </apparelRequired>
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <LightningAmplifierHediff>1</LightningAmplifierHediff>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+  
+  <PawnKindDef ParentName="Harpy_Hunter">
+    <defName>Harpy_Trader</defName>
+    <label>Harpy trader</label>
+    <trader>true</trader>
+    <apparelRequired Inherit="False">
+      <li>Apparel_TribalHeaddress</li>
+    </apparelRequired>
+    <modExtensions Inherit="False" />
+  </PawnKindDef>
+
+  <!-- High tier - berserker, heavy archer, chief melee, chief ranged -->
+
+  <PawnKindDef ParentName="HarpyTribalBase">
+    <defName>Harpy_Berserker</defName>
+    <label>Harpy berserker</label>
+    <combatPower>120</combatPower>
+    <canBeSapper>true</canBeSapper>
+    <apparelMoney>200~550</apparelMoney>
+    <apparelRequired>
+      <li>Apparel_WarVeil</li>
+    </apparelRequired>
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <SteelHarpyClaw>2</SteelHarpyClaw>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyTribalBase">
+    <defName>Harpy_HeavyArcher</defName>
+    <label>harpy thunderclaw</label>
+    <combatPower>120</combatPower>
+    <apparelMoney>200~550</apparelMoney>
+    <apparelRequired>
+      <li>Apparel_WarVeil</li>
+    </apparelRequired>
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <LightningAmplifierHediff>2</LightningAmplifierHediff>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <PawnKindDef Name="HarpyOutlanderBase" Abstract="True">
+    <race>Harpy</race>
+    <defaultFactionType>OutlanderCivil</defaultFactionType>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+        <commonality>0.5</commonality>
+      </li>
+      <li>
+        <categories>
+          <li>Tribal</li>
+        </categories>
+        <commonality>0.5</commonality>
+      </li>
+    </backstoryFilters>
+    <chemicalAddictionChance>0.03</chemicalAddictionChance>
+    <invNutrition>2.55</invNutrition>
+    <itemQuality>Normal</itemQuality>
+    <backstoryCryptosleepCommonality>0.05</backstoryCryptosleepCommonality>
+    <techHediffsChance>0.04</techHediffsChance>
+    <techHediffsMoney>1100~1400</techHediffsMoney>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <inventoryOptions>
+      <skipChance>0.3</skipChance>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>Silver</thingDef>
+          <countRange>30~70</countRange>
+        </li>
+        <li>
+          <thingDef>Gold</thingDef>
+          <countRange>3~6</countRange>
+        </li>
+        <li>
+          <thingDef>Jade</thingDef>
+          <countRange>6~10</countRange>
+        </li>
+        <li>
+          <thingDef>MedicineIndustrial</thingDef>
+          <countRange>1~2</countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+    <weaponTags>
+      <li>HarpyWeaponZero</li>
+    </weaponTags>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <initialWillRange>0~1</initialWillRange>
+    <initialResistanceRange>10~17</initialResistanceRange>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyOutlanderBase">
+    <defName>Harpy_Villager</defName>
+    <label>Harpy villager</label>
+    <combatPower>35</combatPower>
+    <isFighter>false</isFighter>
+    <gearHealthRange>0.2~2.0</gearHealthRange>
+    <itemQuality>Poor</itemQuality>
+    <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+    </apparelTags>
+    <weaponMoney>0</weaponMoney>
+    <apparelMoney>200~400</apparelMoney>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyOutlanderBase">
+    <defName>Harpy_Guard</defName>
+    <label>Harpy ironfeather</label>
+    <combatPower>90</combatPower>
+    <isFighter>true</isFighter>
+    <gearHealthRange>0.6~2</gearHealthRange>
+    <apparelTags>
+      <li>IndustrialMilitaryBasic</li>
+      <li>BeltDefensePop</li>
+    </apparelTags>
+    <apparelMoney>400~600</apparelMoney>
+    <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <LightningAmplifierHediff>2</LightningAmplifierHediff>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyOutlanderBase">
+    <defName>Harpy_Gunner</defName>
+    <label>Harpy stormcaller</label>
+    <combatPower>150</combatPower>
+    <gearHealthRange>0.7~3.2</gearHealthRange>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>IndustrialAdvanced</li>
+      <li>IndustrialMilitaryBasic</li>
+      <li>IndustrialMilitaryAdvanced</li>
+      <li>BeltDefensePop</li>
+    </apparelTags>
+    <apparelMoney>1000~1500</apparelMoney>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+    <weaponMoney>0</weaponMoney>
+    <combatEnhancingDrugsChance>0.05</combatEnhancingDrugsChance>
+    <combatEnhancingDrugsCount>0~2</combatEnhancingDrugsCount>
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <LightningAmplifierHediff>3</LightningAmplifierHediff>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="HarpyOutlanderBase">
+    <defName>Harpy_Slasher</defName>
+    <label>Harpy deathclaw</label>
+    <combatPower>180</combatPower>
+    <canBeSapper>true</canBeSapper>
+    <gearHealthRange>0.7~3.2</gearHealthRange>
+    <apparelTags>
+      <li>IndustrialBasic</li>
+      <li>IndustrialAdvanced</li>
+      <li>IndustrialMilitaryBasic</li>
+      <li>IndustrialMilitaryAdvanced</li>
+    </apparelTags>
+    <apparelRequired>
+      <li>Apparel_ShieldBelt</li>
+    </apparelRequired>
+    <apparelMoney>700~1400</apparelMoney>
+    <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+    <weaponMoney>0</weaponMoney>
+    <modExtensions>
+      <li Class="SyrHarpy.SyrHarpyExtension">
+        <requiredProsthetics>
+          <PlasteelHarpyClaw>2</PlasteelHarpyClaw>
+        </requiredProsthetics>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+  
+</Defs>

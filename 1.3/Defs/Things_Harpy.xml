@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MealCooked">
+    <defName>MealFine_Harpy</defName>
+    <label>fine harpy meal</label>
+    <description>A complex dish assembled with care from one of harpies' favorites and other ingredients.</description>
+    <graphicData>
+      <texPath>Things/Item/FineHarpy</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <WorkToMake>300</WorkToMake>
+      <Nutrition>0.9</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealFine</preferability>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Meal_Eat</ingestSound>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="MealCooked">
+    <defName>MealLavish_Harpy</defName>
+    <label>lavish harpy meal</label>
+    <description>A masterpiece of the culinary arts, this meal combines two of the favorite things harpies love.</description>
+    <graphicData>
+      <texPath>Things/Item/LavishHarpy</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+      <WorkToMake>450</WorkToMake>
+      <Nutrition>1</Nutrition>
+    </statBases>
+    <ingestible>
+      <preferability>MealLavish</preferability>
+      <tasteThought>AteFineMeal</tasteThought>
+      <ingestEffect>EatVegetarian</ingestEffect>
+      <ingestSound>Meal_Eat</ingestSound>
+    </ingestible>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseWeapon" Name="LightningWeaponBase">
+    <defName>Harpy_LightningWeaponZero</defName>
+    <label>throw lightning (0)</label>
+    <description>Throw a lightning bolt at the target</description>
+    <techLevel>Neolithic</techLevel>
+    <!--<destroyOnDrop>true</destroyOnDrop>-->
+    <tradeability>None</tradeability>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/LightningWeapon</texPath>
+      <shaderType>MoteGlow</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconPath>Things/Special/HarpyLightningIcon</uiIconPath>
+    <soundInteract>Harpy_InteractFocus</soundInteract>
+    <statBases>
+      <MarketValue>50</MarketValue>
+      <Mass>0</Mass>
+	    <Flammability>0.0</Flammability>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.95</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>2.0</RangedWeapon_Cooldown>
+      <WorkToMake>1000</WorkToMake>
+    </statBases>
+	  <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <verbs>
+      <li>
+        <verbClass>SyrHarpy.Verb_Lightning</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HarpyLightning</defaultProjectile>
+        <warmupTime>2.0</warmupTime>
+        <range>19.9</range>
+        <soundCast>Harpy_LightningLaunch</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="LightningWeaponBase">
+    <defName>Harpy_LightningWeaponOne</defName>
+    <label>throw lightning (1)</label>
+    <techLevel>Medieval</techLevel>
+    <statBases>
+      <MarketValue>300</MarketValue>
+      <RangedWeapon_Cooldown>1.6</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs Inherit="False">
+      <li>
+        <verbClass>SyrHarpy.Verb_Lightning</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HarpyLightning</defaultProjectile>
+        <warmupTime>1.6</warmupTime>
+        <range>23.9</range>
+        <soundCast>Harpy_LightningLaunch</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="LightningWeaponBase">
+    <defName>Harpy_LightningWeaponTwo</defName>
+    <label>throw lightning (2)</label>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs Inherit="False">
+      <li>
+        <verbClass>SyrHarpy.Verb_Lightning</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HarpyLightning</defaultProjectile>
+        <warmupTime>1.3</warmupTime>
+        <range>25.9</range>
+        <soundCast>Harpy_LightningLaunch</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="LightningWeaponBase">
+    <defName>Harpy_LightningWeaponThree</defName>
+    <label>throw lightning (3)</label>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MarketValue>800</MarketValue>
+      <RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs Inherit="False">
+      <li>
+        <verbClass>SyrHarpy.Verb_Lightning</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HarpyLightning</defaultProjectile>
+        <warmupTime>1.1</warmupTime>
+        <range>26.9</range>
+        <soundCast>Harpy_LightningLaunch</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="LightningWeaponBase">
+    <defName>Harpy_LightningWeaponFour</defName>
+    <label>throw lightning (4)</label>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <MarketValue>1100</MarketValue>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs Inherit="False">
+      <li>
+        <verbClass>SyrHarpy.Verb_Lightning</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HarpyLightning</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>27.9</range>
+        <soundCast>Harpy_LightningLaunch</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="LightningWeaponBase">
+    <defName>Harpy_LightningWeaponFive</defName>
+    <label>throw lightning (5)</label>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <MarketValue>1400</MarketValue>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs Inherit="False">
+      <li>
+        <verbClass>SyrHarpy.Verb_Lightning</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HarpyLightningTwo</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>28.9</range>
+        <soundCast>Harpy_LightningLaunch</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="LightningWeaponBase">
+    <defName>Harpy_LightningWeaponSix</defName>
+    <label>throw lightning (6)</label>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <MarketValue>1700</MarketValue>
+      <RangedWeapon_Cooldown>1.0</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs Inherit="False">
+      <li>
+        <verbClass>SyrHarpy.Verb_Lightning</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_HarpyLightningTwo</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>29.9</range>
+        <soundCast>Harpy_LightningLaunch</soundCast>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet" Name="BaseHarpyBullet">
+	  <thingClass>SyrHarpy.HarpyLightning</thingClass>
+    <defName>Bullet_HarpyLightning</defName>
+    <label>harpy lightning</label>
+    <graphicData>
+      <texPath>Things/Projectile/lightningOrb</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>HarpyLightning</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationBase>0.5</armorPenetrationBase>
+      <speed>24</speed>
+      <stoppingPower>5</stoppingPower><!--Uses custom stagger-->
+	    <soundAmbient>Harpy_LightningSustain</soundAmbient>
+    </projectile>
+    <comps>
+      <li Class="SyrHarpy.CompProperties_HarpyMoteEmitter">
+        <mote>HarpyMote_LightningOne</mote>
+		    <emissionInterval>2</emissionInterval>
+        <scale>0.5~1.0</scale>
+        <rotationRate>-180~180</rotationRate>
+        <rotation>-180~180</rotation>
+        <angle>-180~180</angle>
+        <speed>1.5~2.5</speed>
+      </li>
+      <li Class="SyrHarpy.CompProperties_HarpyMoteEmitter">
+        <mote>HarpyMote_LightningTwo</mote>
+		    <emissionInterval>2</emissionInterval>
+        <scale>0.5~1.0</scale>
+        <rotationRate>-180~180</rotationRate>
+        <rotation>-180~180</rotation>
+        <angle>-180~180</angle>
+        <speed>1.5~2.5</speed>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseHarpyBullet">
+    <defName>Bullet_HarpyLightningTwo</defName>
+    <projectile Inherit="False">
+      <damageDef>HarpyLightning</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <armorPenetrationBase>0.5</armorPenetrationBase>
+      <speed>24</speed>
+      <stoppingPower>5</stoppingPower><!--Uses custom stagger-->
+	    <soundAmbient>Harpy_LightningSustain</soundAmbient>
+      <extraDamages>
+        <li>
+          <def>EMP</def>
+          <amount>20</amount>
+        </li>
+      </extraDamages>
+    </projectile>
+  </ThingDef>
+
+  <DamageDef>
+    <defName>HarpyLightning</defName>
+    <workerClass>SyrHarpy.DamageWorker_HarpyLightning</workerClass>
+    <label>electrocution</label>
+	  <impactSoundType>Electric</impactSoundType>
+    <makesBlood>false</makesBlood>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been electrocuted.</deathMessage>
+    <hediff>HarpyElectrocution</hediff>
+    <armorCategory>Sharp</armorCategory>
+    <explosionSnowMeltAmount>0</explosionSnowMeltAmount>
+    <explosionCellMote>HarpyMote_LightningThree</explosionCellMote>
+    <explosionColorEdge>(0.8, 0.8, 0.8, 0.8)</explosionColorEdge>
+    <explosionInteriorFleck>ElectricalSpark</explosionInteriorFleck>
+    <soundExplosion>Harpy_LightningImpact</soundExplosion>
+  </DamageDef>
+
+  <HediffDef ParentName="InjuryBase">
+    <defName>HarpyElectrocution</defName>
+    <label>electric burn</label>
+    <labelNoun>an electric burn</labelNoun>
+    <description>An electric burn.</description>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>tended</labelTendedWellInner>
+        <labelSolidTendedWell>tended</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.15</infectionChance>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>electric burn scar</permanentLabel>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.015</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+      <canMerge>true</canMerge>
+      <destroyedLabel>Destroyed</destroyedLabel>
+    </injuryProps>
+  </HediffDef>
+
+<HediffDef ParentName="DiseaseBase">
+    <defName>HarpyParalyzed</defName>
+    <label>paralyzed</label>
+    <description>Paralyzing effects of a powerful harpy lightning attack. Wears off rapidly.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(1.0, 1.0, 1.0)</defaultLabelColor>
+    <initialSeverity>0.5</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_SelfHeal">
+        <healAmount>0.15</healAmount>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>weak</label>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.9</postFactor>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <postFactor>0.9</postFactor>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>medium</label>
+        <minSeverity>0.33</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.7</postFactor>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <postFactor>0.7</postFactor>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <label>strong</label>
+        <minSeverity>0.67</minSeverity>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <postFactor>0.5</postFactor>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <postFactor>0.5</postFactor>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>HarpyMote_DistortionImpact</defName>
+    <mote>
+      <fadeInTime>0.1</fadeInTime>
+      <solidTime>0.1</solidTime>
+      <fadeOutTime>0.8</fadeOutTime>
+    </mote>
+    <graphicData>
+      <graphicClass>Graphic_MotePulse</graphicClass>
+      <texPath>Things/Mote/PsychicConditionCauserMask</texPath>
+      <shaderType>MotePsychicConditionCauser</shaderType>
+      <shaderParameters>
+        <_distortionIntensity>0.015</_distortionIntensity>
+        <_brightnessMultiplier>1.5</_brightnessMultiplier>
+        <_distortionScale>20</_distortionScale>
+      </shaderParameters>
+	  <drawSize>6</drawSize>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>HarpyMote_LightningOne</defName>
+    <graphicData>
+      <texPath>Things/Mote/lightningMote1</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.1</fadeInTime>
+      <solidTime>0.1</solidTime>
+      <fadeOutTime>0.3</fadeOutTime>
+	  <growthRate>-1</growthRate>
+    </mote>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>HarpyMote_LightningTwo</defName>
+    <graphicData>
+      <texPath>Things/Mote/lightningMote2</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.1</fadeInTime>
+      <solidTime>0.1</solidTime>
+      <fadeOutTime>0.3</fadeOutTime>
+	  <growthRate>-1</growthRate>
+    </mote>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <thingClass>SyrHarpy.HarpyMote</thingClass>
+    <defName>HarpyMote_LightningThree</defName>
+    <graphicData>
+      <texPath>Things/Mote/lightningMote3</texPath>
+      <shaderType>MoteGlow</shaderType>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.05</fadeInTime>
+      <solidTime>0.05</solidTime>
+      <fadeOutTime>0.2</fadeOutTime>
+    <growthRate>3</growthRate>
+    </mote>
+  </ThingDef>
+
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>FlyAbilitySkyfaller</defName>
+    <label>flyAbilitySkyfaller</label>
+    <thingClass>SyrHarpy.FlyAbilitySkyfaller</thingClass>
+    <size>(1, 1)</size>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <drawerType>RealtimeOnly</drawerType>
+    <seeThroughFog>true</seeThroughFog>
+    <skyfaller>
+    <movementType>ConstantSpeed</movementType>
+    <shadow>Things/Skyfaller/SkyfallerShadowCircle</shadow>
+    <shadowSize>(1, 1)</shadowSize>
+      <rotateGraphicTowardsDirection>true</rotateGraphicTowardsDirection>
+      <motesPerCell>2</motesPerCell>
+    <hitRoof>true</hitRoof>
+    <speed>0.2</speed>
+    </skyfaller>
+  </ThingDef>
+
+  <ThingDef ParentName="MoteBase">
+    <defName>HarpyMote_Feathers</defName>
+    <graphicData>
+      <texPath>Things/Mote/Feathers</texPath>
+      <shaderType>Mote</shaderType>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <fadeInTime>0.25</fadeInTime>
+      <solidTime>0.5</solidTime>
+      <fadeOutTime>1.0</fadeOutTime>
+    </mote>
+  </ThingDef>
+
+</Defs>

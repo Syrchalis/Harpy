@@ -37,7 +37,7 @@ namespace SyrHarpy
             {
                 GenTemperature.PushHeat(explosion.Position, explosion.Map, def.explosionHeatEnergyPerCell * cellsToAffect.Count);
             }
-            MoteMaker.MakeStaticMote(explosion.Position, explosion.Map, ThingDefOf.Mote_ExplosionFlash, explosion.radius * 6f);
+            FleckMaker.Static(explosion.Position, explosion.Map, FleckDefOf.ExplosionFlash, explosion.radius * 6f);
             ExplosionVisualEffectCenter(explosion);
         }
         protected override void ExplosionVisualEffectCenter(Explosion explosion)

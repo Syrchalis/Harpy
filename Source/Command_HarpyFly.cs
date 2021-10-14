@@ -50,7 +50,7 @@ namespace SyrHarpy
             }
         }
 
-        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth)
+        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
             disabled = false;
             HarpyComp comp = pawn.TryGetComp<HarpyComp>();
@@ -82,7 +82,7 @@ namespace SyrHarpy
             {
                 DisableWithReason("HarpyFly_Wings".Translate());
             }
-            GizmoResult result = base.GizmoOnGUI(topLeft, maxWidth);
+            GizmoResult result = base.GizmoOnGUI(topLeft, maxWidth, parms);
             if (comp != null && comp.cooldownTicks > 0)
             {
                 CompProperties_HarpyComp props = comp.props as CompProperties_HarpyComp;
@@ -167,6 +167,13 @@ namespace SyrHarpy
                 return null;
             }
         }
+        public bool HidePawnTooltips
+        {
+            get
+            {
+                return false;
+            }
+        }
         public bool CanHitTarget(LocalTargetInfo target)
         {
             return pawn.Map != null 
@@ -176,7 +183,7 @@ namespace SyrHarpy
                 && !target.Cell.Roofed(pawn.Map);
             
         }
-        public bool ValidateTarget(LocalTargetInfo target)
+        public bool ValidateTarget(LocalTargetInfo target, bool showMessages = true)
         {
             if (!target.Cell.Standable(pawn.Map) || !target.Cell.InBounds(pawn.Map))
             {

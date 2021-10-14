@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ScenarioDef>
+    <defName>Harpy Tribe</defName>
+    <label>Harpy Tribe</label>
+    <description>The constant fighting among your kind was too much for the four of you and when beasts of steal attacked you used the opportunity to fly away in search for a brighter future. Will your feathers stay un-ruffled or is this a story of broken wings?</description>
+    <scenario>
+      <summary>Four harpies start a tribe.</summary>
+      <playerFaction>
+        <def>PlayerFaction</def>
+        <factionDef>HarpyPlayerTribe</factionDef>
+      </playerFaction>
+		<parts>
+			<!-- Config pages -->
+			<li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+				<def>ConfigPage_ConfigureStartingPawns</def>
+				<pawnCount>4</pawnCount>
+				<pawnChoiceCount>8</pawnChoiceCount>
+			</li>
+
+			<!-- Player starting stuff spawn method-->
+			<li Class="ScenPart_PlayerPawnsArriveMethod">
+				<def>PlayerPawnsArriveMethod</def>
+				<method>Standing</method>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>Pemmican</thingDef>
+				<count>400</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>MedicineHerbal</thingDef>
+				<count>32</count>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>WoodLog</thingDef>
+				<count>500</count>
+			</li>
+		</parts>
+    </scenario>
+  </ScenarioDef>
+
+</Defs>

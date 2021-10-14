@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FactionDef ParentName="PlayerFactionBase">
+    <defName>HarpyPlayerTribe</defName>
+    <label>New Harpy Tribe</label>
+    <description>A small Harpy tribe.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>Harpy_Tribesperson</basicMemberKind>
+    <pawnSingular>tribesperson</pawnSingular>
+    <pawnsPlural>tribespeople</pawnsPlural>
+    <techLevel>Neolithic</techLevel>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Tribal</li>
+        </categories>
+      </li>
+    </backstoryFilters>
+    <factionIconPath>World/HarpyBase</factionIconPath>
+    <playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
+    <factionNameMaker>NamerFactionHarpy</factionNameMaker>
+    <settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+    <geneticVariance>1</geneticVariance>
+    <startingResearchTags>
+      <li>TribalStart</li>
+    </startingResearchTags>
+    <apparelStuffFilter>
+      <thingDefs>
+        <li>Cloth</li>
+      </thingDefs>
+    </apparelStuffFilter>
+	  <recipePrerequisiteTags>
+      <li>Tribal</li>
+    </recipePrerequisiteTags>
+    <colorSpectrum>
+      <li>(0, 0.737, 0.847)</li>
+    </colorSpectrum>
+    <settlementTexturePath>World/WorldObjects/TribalSettlement</settlementTexturePath>
+    <requiredMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">FemaleSupremacy</li>
+    </requiredMemes>
+    <disallowedMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">HumanPrimacy</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">MaleSupremacy</li>
+    </disallowedMemes>
+    <disallowedPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">MeatEating_Abhorrent</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">MeatEating_Horrible</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">MeatEating_Disapproved</li>
+    </disallowedPrecepts>
+  </FactionDef>
+
+  <RulePackDef>
+    <defName>NamerFactionHarpy</defName>
+    <include>
+      <li>TribalWordUtility</li>
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name->The [Color] [harpy_part]</li>
+        <li>r_name->The [WordTribal] [harpy_part]</li>
+        <li>r_name(p=0.1)->The Federation of Birbs</li>
+        <li>r_name->[AdjectiveNatural] [harpy_part_plural]</li>
+        <li>r_name->The [TerrainFeature] [harpy_part_plural]</li>
+        <li>r_name->[harpy_part_plural] of the [TerrainFeature]</li>
+        <li>r_name->[harpy_part_plural] of [ConceptBadass]</li>
+        <li>r_name(p=2)->[AdjectiveBadass] [harpy_part]</li>
+
+        <li>harpy_part(p=1.5)->claws</li>
+        <li>harpy_part(p=1.5)->claw</li>
+        <li>harpy_part(p=1.5)->talons</li>
+        <li>harpy_part(p=1.5)->talon</li>
+        <li>harpy_part->wing</li>
+        <li>harpy_part->wings</li>
+        <li>harpy_part->feather</li>
+        <li>harpy_part->feathers</li>
+
+        <li>harpy_part_plural(p=1.5)->claws</li>
+        <li>harpy_part_plural(p=1.5)->talons</li>
+        <li>harpy_part_plural->wings</li>
+        <li>harpy_part_plural->feathers</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <NeedDef>
+    <defName>Bloodlust</defName>
+    <needClass>SyrHarpy.Need_Bloodlust</needClass>
+    <label>bloodlust</label>
+    <description>Harpies are vicious creatures that need to let out their wilder side from time to time, otherwise they will let it out on whoever is around.</description>
+    <minIntelligence>Humanlike</minIntelligence>
+    <colonistsOnly>true</colonistsOnly>
+    <neverOnPrisoner>true</neverOnPrisoner>
+    <listPriority>450</listPriority>
+    <major>true</major>
+    <freezeWhileSleeping>true</freezeWhileSleeping>
+    <freezeInMentalState>false</freezeInMentalState>
+  </NeedDef>
+
+</Defs>

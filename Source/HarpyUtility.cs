@@ -39,7 +39,7 @@ namespace SyrHarpy
 
         public static int HarpyAmplifierLevel(Pawn pawn)
         {
-            Hediff_ImplantWithLevel hediffLevel = (Hediff_ImplantWithLevel)pawn.health.hediffSet.GetFirstHediffOfDef(HarpyDefOf.LightningAmplifierHediff);
+            Hediff_Level hediffLevel = (Hediff_Level)pawn.health.hediffSet.GetFirstHediffOfDef(HarpyDefOf.LightningAmplifierHediff);
             if (hediffLevel != null)
             {
                 return hediffLevel.level;

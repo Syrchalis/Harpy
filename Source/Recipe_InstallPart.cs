@@ -46,11 +46,11 @@ namespace SyrHarpy
                 MedicalRecipesUtility.RestorePartAndSpawnAllPreviousParts(pawn, part, billDoer.Position, billDoer.Map);
                 if (flag && flag2 && part.def.spawnThingOnRemoved != null)
                 {
-                    ThoughtUtility.GiveThoughtsForPawnOrganHarvested(pawn);
+                    ThoughtUtility.GiveThoughtsForPawnOrganHarvested(pawn, billDoer);
                 }
                 if (flag2)
                 {
-                    ReportViolation(pawn, billDoer, pawn.FactionOrExtraMiniOrHomeFaction, -70, "GoodwillChangedReason_NeedlesslyInstalledWorseBodyPart".Translate(this.recipe.addsHediff.label));
+                    ReportViolation(pawn, billDoer, pawn.HomeFaction, -70);
                 }
             }
             else if (pawn.Map != null)

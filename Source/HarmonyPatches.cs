@@ -181,59 +181,45 @@ namespace SyrHarpy
         {
             if (pawn?.Map != null && c != null && pawn.def == HarpyDefOf.Harpy && HarpyUtility.FlightCapabable(pawn))
             {
-                __result -= pawn.Map.pathGrid.CalculatedCostAt(c, false, pawn.Position);
+                __result -= pawn.Map.pathing.For(pawn).pathGrid.CalculatedCostAt(c, false, pawn.Position);
             }
         }
     }
 
     //If flight capable pathing AI will not be influenced by terrain path cost
-    [HarmonyPatch(typeof(PathFinder), nameof(PathFinder.FindPath), new Type[] { typeof(IntVec3), typeof(LocalTargetInfo), typeof(TraverseParms), typeof(PathEndMode) })]
+    [HarmonyPatch(typeof(PathFinder), nameof(PathFinder.FindPath), new Type[] { typeof(IntVec3), typeof(LocalTargetInfo), typeof(TraverseParms), typeof(PathEndMode), typeof(PathFinderCostTuning) } )]
     public static class FindPathPatch
     {
         [HarmonyTranspiler]
         public static IEnumerable<CodeInstruction> FindPath_Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var instructionList = instructions.ToList();
-            var TerrainPathCost = AccessTools.Method(typeof(FindPathPatch), nameof(FindPathPatch.TerrainPathCost));
+            var nonDraftedCost = AccessTools.Field(typeof(TerrainDef), nameof(TerrainDef.extraNonDraftedPerceivedPathCost));
+            var draftedCost = AccessTools.Field(typeof(TerrainDef), nameof(TerrainDef.extraDraftedPerceivedPathCost));
             for (int i = 0; i < instructionList.Count; i++)
             {
-                var instruction = instructionList[i];
-
                 // Look for the section that checks the terrain grid pathCosts
-                if (instruction.opcode == OpCodes.Stloc_S && instruction.operand is LocalBuilder lb && lb.LocalIndex == 41)
+                if (i >=3 && instructionList[i - 3].opcode == OpCodes.Ldfld && (instructionList[i - 3].OperandIs(nonDraftedCost) || instructionList[i - 3].OperandIs(draftedCost)))
                 {
-                    var secondInstructionBehind = instructionList[i - 2];
-                    if (secondInstructionBehind.opcode == OpCodes.Ldelem_I4)
-                    {
-                        yield return instruction;
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, 41); // num17
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, 38); // num15
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, 12); // topGrid
-                        yield return new CodeInstruction(OpCodes.Ldarg_3); // parms
-                        yield return new CodeInstruction(OpCodes.Call, TerrainPathCost); // TerrainPathCost (num17, num15, topGrid, parms)
-                        instruction = instruction.Clone();
-                        //yield return instruction; // num17 += array[num15]
-                    }
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, 46); //total Pathcost to subtract from later
+
+                    yield return new CodeInstruction(OpCodes.Ldloc_0); //pawn
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, 46); // total Pathcost
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, 12); // topGrid
+                    yield return new CodeInstruction(OpCodes.Ldloc_S, 43); // index
+                    yield return new CodeInstruction(OpCodes.Ldelem_Ref); //gets TerrainDef based on topGrid[index]
+                    yield return new CodeInstruction(OpCodes.Call, typeof(FindPathPatch).GetMethod(nameof(FindPathPatch.TerrainPathCost))); // TerrainPathCost (num17, num15, topGrid, parms)
+
+                    yield return new CodeInstruction(OpCodes.Sub);
+                    yield return new CodeInstruction(OpCodes.Stloc_S, 46);
                 }
-                yield return instruction;
+                yield return instructionList[i];
             }
         }
 
-        public static int TerrainPathCost(int cost, int nextIndex, TerrainDef[] terrainDef, TraverseParms parms)
+        public static int TerrainPathCost(Pawn pawn, int cost, TerrainDef terrainDef)
         {
-            if (parms.pawn?.def != null && parms.pawn.def == HarpyDefOf.Harpy && HarpyUtility.FlightCapabable(parms.pawn) && terrainDef[nextIndex] != null)
-            {
-                cost -= terrainDef[nextIndex].pathCost;
-                if (parms.pawn.Drafted)
-                {
-                    cost -= terrainDef[nextIndex].extraDraftedPerceivedPathCost;
-                }
-                else
-                {
-                    cost -= terrainDef[nextIndex].extraNonDraftedPerceivedPathCost;
-                }
-            }
-            return cost;
+            return (pawn != null && pawn.def == HarpyDefOf.Harpy && HarpyUtility.FlightCapabable(pawn) && terrainDef != null) ? terrainDef.pathCost : 0;
         }
     }
 
@@ -451,8 +437,8 @@ namespace SyrHarpy
 
     //Add lightningWeapon if harpy does not have one once recruited
     [HarmonyPatch(typeof(InteractionWorker_RecruitAttempt), nameof(InteractionWorker_RecruitAttempt.DoRecruit), 
-        new Type[] { typeof(Pawn), typeof(Pawn), typeof(float), typeof(string), typeof(string), typeof(bool), typeof(bool) }, 
-        new ArgumentType[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Out, ArgumentType.Out, ArgumentType.Normal, ArgumentType.Normal })]
+        new Type[] { typeof(Pawn), typeof(Pawn), typeof(string), typeof(string), typeof(bool), typeof(bool) }, 
+        new ArgumentType[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Out, ArgumentType.Out, ArgumentType.Normal, ArgumentType.Normal })]
     public static class DoRecruitPatch
     {
         // Alternate way
@@ -540,7 +526,7 @@ namespace SyrHarpy
                 Job curJob = pawn.CurJob;
                 if (curJob.def.joyKind == null)
                 {
-                    Log.Warning("This method can only be called for jobs with joyKind.", false);
+                    Log.Warning("This method can only be called for jobs with joyKind.");
                     return false;
                 }
                 if (curJob.def.joySkill != null)
@@ -617,7 +603,7 @@ namespace SyrHarpy
         }
     }
     //NREs during parties for harpies
-    [HarmonyPatch(typeof(LordToil_Party), nameof(LordToil_Party.LordToilTick))]
+    /*[HarmonyPatch(typeof(LordToil_Party), nameof(LordToil_Party.LordToilTick))]
     public static class LordToilTickPatch
     {
         [HarmonyPrefix]
@@ -645,7 +631,7 @@ namespace SyrHarpy
             }
             return false;
         }
-    }
+    }*/
     [HarmonyPatch(typeof(JobGiver_GetJoy), "TryGiveJob")]
     public static class JobGiver_GetJoyPatch
     {
@@ -733,7 +719,7 @@ namespace SyrHarpy
                                 }
                             }
                         }
-                        if (thc.hediffDef.hediffClass == typeof(Hediff_ImplantWithLevel))
+                        if (thc.hediffDef.hediffClass == typeof(Hediff_Level))
                         {
                             IEnumerable<ThingDef> thingDefs = from t in DefDatabase<ThingDef>.AllDefs
                                                             where (t.HasComp(typeof(CompUseEffect_InstallImplant)) || t.HasComp(typeof(CompUseEffect_LightningImplant))) && t.GetCompProperties<CompProperties_UseEffectInstallImplant>().hediffDef == thc.hediffDef
@@ -745,7 +731,7 @@ namespace SyrHarpy
                                 int level = (int)Mathf.Clamp(thc.count, thc.hediffDef.minSeverity, thc.hediffDef.maxSeverity);
                                 if (level > 0)
                                 {
-                                    Hediff_ImplantWithLevel hediffLevel = HediffMaker.MakeHediff(thc.hediffDef, pawn, record) as Hediff_ImplantWithLevel;
+                                    Hediff_Level hediffLevel = HediffMaker.MakeHediff(thc.hediffDef, pawn, record) as Hediff_Level;
                                     hediffLevel.level = level;
                                     pawn.health.AddHediff(hediffLevel);
                                 }

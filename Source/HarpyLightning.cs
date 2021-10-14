@@ -96,10 +96,10 @@ namespace SyrHarpy
             SoundDefOf.BulletImpact_Ground.PlayOneShot(new TargetInfo(Position, map, false));
             if (Position.GetTerrain(map).takeSplashes)
             {
-                MoteMaker.MakeWaterSplash(ExactPosition, map, Mathf.Sqrt(DamageAmount) * 1f, 6f);
+                FleckMaker.WaterSplash(ExactPosition, map, Mathf.Sqrt((float)DamageAmount) * 1f, 4f);
                 return;
             }
-            MoteMaker.MakeStaticMote(ExactPosition, map, ThingDefOf.Mote_ShotHit_Dirt, 3f);
+            FleckMaker.Static(ExactPosition, map, FleckDefOf.ShotHit_Dirt, 1f);
         }
 
         int rotation;
@@ -139,7 +139,7 @@ namespace SyrHarpy
         public override void DoEffect(Pawn user)
         {
             base.DoEffect(user);
-            Hediff_ImplantWithLevel hediffLevel = (Hediff_ImplantWithLevel)GetExistingImplant(user);
+            Hediff_Level hediffLevel = (Hediff_Level)GetExistingImplant(user);
             int level = hediffLevel.level;
             HarpyUtility.SwapLightningWeapon(user, level);
         }
@@ -169,7 +169,7 @@ namespace SyrHarpy
                     failReason = "InstallImplantAlreadyInstalled".Translate();
                     return false;
                 }
-                Hediff_ImplantWithLevel hediffLevel = (Hediff_ImplantWithLevel)hediff;
+                Hediff_Level hediffLevel = (Hediff_Level)hediff;
                 if (hediffLevel.level >= hediffLevel.def.maxSeverity)
                 {
                     failReason = "InstallImplantAlreadyMaxLevel".Translate();
@@ -199,7 +199,7 @@ namespace SyrHarpy
     {
         public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
         {
-            Hediff_ImplantWithLevel hediffLevel = (Hediff_ImplantWithLevel)pawn.health.hediffSet.GetFirstHediffOfDef(HarpyDefOf.LightningAmplifierHediff);
+            Hediff_Level hediffLevel = (Hediff_Level)pawn.health.hediffSet.GetFirstHediffOfDef(HarpyDefOf.LightningAmplifierHediff);
             if (hediffLevel != null)
             {
                 Thing thing = ThingMaker.MakeThing(hediffLevel.level > 3 ? HarpyDefOf.LightningAmplifierAdvanced : HarpyDefOf.LightningAmplifierBasic, null);

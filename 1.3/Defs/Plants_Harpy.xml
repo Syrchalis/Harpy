@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>Plant_HarpyChili</defName>
+    <label>harpy chili plant</label>
+    <description>Genetically modified chilis for maximum nutritional value and yield. They were designed to appease the appetite of thrill-seeking royals who wanted particularly spicy chilis. Mostly unable to perceive capsaicin harpies have taken a great liking to the plant. It soothes their bloodlust, tastes amazing to them and the ability to grow these almost anywhere is of great advantage, just like the fact nearly no one would steal them from them.</description>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Nutrition>0.2</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Plant/HarpyChiliPlant</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+    <ingestible />
+    <plant>
+      <fertilityMin>0.1</fertilityMin>
+      <fertilitySensitivity>0.2</fertilitySensitivity>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>RawHarpyChilis</harvestedThingDef>
+      <harvestYield>10</harvestYield>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <topWindExposure>0.1</topWindExposure>
+      <growDays>5</growDays>
+      <visualSizeRange>0.5~1.3</visualSizeRange>
+      <wildOrder>2</wildOrder>
+      <purpose>Food</purpose>
+      <immatureGraphicPath>Things/Plant/HarpyChiliPlant_Immature</immatureGraphicPath>
+    </plant>
+  </ThingDef>
+
+  <ThingDef ParentName="PlantFoodRawBase">
+    <defName>RawHarpyChilis</defName>
+    <label>harpy chilis</label>
+    <description>Raw harpy chilis. Warning: Extremely spicy, do not feed to non-harpies.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/PlantFoodRaw/HarpyChili</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>1.1</MarketValue>
+    </statBases>
+    <ingestible>
+      <foodType>VegetableOrFruit</foodType>
+      <preferability>RawTasty</preferability>
+      <tasteThought></tasteThought>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_OffsetNeed">
+          <need>Bloodlust</need>
+          <offset>0.1</offset>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>45</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>HarpyChiliBurn</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>chili burn</label>
+    <labelNoun>a chili burn</labelNoun>
+    <description>Super hot chili burns the mouth of any non-harpy.</description>
+    <defaultLabelColor>(1,0,0)</defaultLabelColor>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>true</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-8.00</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+        <li>
+          <label>unpleasant</label>
+          <painOffset>0.2</painOffset>
+          <vomitMtbDays>1.0</vomitMtbDays>
+          <statOffsets>
+            <ComfyTemperatureMax>-5</ComfyTemperatureMax>
+          </statOffsets>
+        </li>
+        <li>
+          <label>painful</label>
+          <minSeverity>0.4</minSeverity>
+          <painOffset>0.4</painOffset>
+          <vomitMtbDays>2.0</vomitMtbDays>
+          <statOffsets>
+            <ComfyTemperatureMax>-10</ComfyTemperatureMax>
+          </statOffsets>
+        </li>
+        <li>
+          <label>overwhelming</label>
+          <minSeverity>0.7</minSeverity>
+          <painOffset>1.0</painOffset>
+          <vomitMtbDays>4.0</vomitMtbDays>
+          <statOffsets>
+            <ComfyTemperatureMax>-20</ComfyTemperatureMax>
+          </statOffsets>
+        </li>
+      </stages>
+  </HediffDef>
+
+</Defs>

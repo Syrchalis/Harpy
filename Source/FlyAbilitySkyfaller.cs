@@ -55,7 +55,7 @@ namespace SyrHarpy
             }
             if (this.ticksToImpact < 0)
             {
-                Log.Error("ticksToImpact < 0. Was there an exception? Destroying skyfaller.", false);
+                Log.Error("ticksToImpact < 0. Was there an exception? Destroying skyfaller.");
                 this.EjectPilot();
                 this.Destroy(0);
             }
@@ -117,7 +117,7 @@ namespace SyrHarpy
             }
         }
 
-        private float TimeInAnimation
+        new private float TimeInAnimation
         {
             get
             {
