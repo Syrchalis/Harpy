@@ -593,7 +593,7 @@ namespace SyrHarpy
             ___boredPawnsResult.Clear();
             foreach (Pawn pawn in PawnsFinder.AllMaps_FreeColonistsSpawned)
             {
-                if (pawn.def != HarpyDefOf.Harpy && (pawn.needs.joy.CurLevelPercentage < 0.24000001f || pawn.GetTimeAssignment() == TimeAssignmentDefOf.Joy) && pawn.needs.joy.tolerances.BoredOfAllAvailableJoyKinds(pawn))
+                if (pawn != null && pawn.def != HarpyDefOf.Harpy && (pawn.needs.joy.CurLevelPercentage < 0.24000001f || pawn.GetTimeAssignment() == TimeAssignmentDefOf.Joy) && pawn.needs.joy.tolerances.BoredOfAllAvailableJoyKinds(pawn))
                 {
                     ___boredPawnsResult.Add(pawn);
                 }
